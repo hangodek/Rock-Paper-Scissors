@@ -1,3 +1,9 @@
+let playerScore = 0;
+let computerScore = 0;
+
+let myScore = document.getElementById('myScore');
+let compScore = document.getElementById('computerScore');
+
 function getComputerChoice () {
     let temp = Math.floor(Math.random() * 3);
     let choice;
@@ -16,40 +22,26 @@ function getComputerChoice () {
 function playRound (playerChoice, computerChoice) {
 
     if (playerChoice == 'rock' && computerChoice == 'paper') {
-        return true;
+        playerScore++;
+        myScore.textContent = `Your Score : ${playerScore}`;
     } else if (playerChoice == 'paper' && computerChoice == 'rock') {
-        return true;
+        playerScore++;
+        myScore.textContent = `Your Score : ${playerScore}`;
     } else if (playerChoice == 'scissor' && computerChoice == 'paper') {
-        return true;
+        playerScore++;
+        myScore.textContent = `Your Score : ${playerScore}`;
     } else {
-        return false;
+        computerScore++;
+        compScore.textContent = `Computer Score : ${computerScore}`;
+    }
+
+    if (playerScore == 5) {
+        alert('You Win !')
+    } else if (computerScore == 5) {
+        alert('You Lose !')
     }
 }
 
-function game (choice) {
-    let playerScore = 0;
-    let computerScore = 0;
-
-    for (let i = 0; i < 5; i++) {
-        
-        if (playRound(choice, getComputerChoice()) == true) {
-            playerScore++;
-        } else {
-            computerScore++;
-        }
-
-    }
-
-    if (playerScore > computerScore) {
-        console.log('You Win !');
-    } else {
-        console.log('You Lose !');
-    }
-
-    console.log(`SCORE \n
-    Player = ${playerScore} \n
-    Computer = ${computerScore}`);
-}
 
 
 
@@ -68,15 +60,15 @@ function toggleBorder(element) {
 
 rock.addEventListener('click', () => {
     toggleBorder(rock);
-    game('rock');
+    playRound('rock', getComputerChoice());
 })
 
 paper.addEventListener('click', () => {
     toggleBorder(paper);
-    game('paper');
+    playRound('paper', getComputerChoice());
 })
 
 scissor.addEventListener('click', () => {
     toggleBorder(scissor);
-    game('scissor');
+    playRound('scissor', getComputerChoice());
 })
