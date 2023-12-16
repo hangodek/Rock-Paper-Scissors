@@ -1,0 +1,49 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: white;
+}
+
+.container {
+    padding: 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    color: black;
+}
+
+.score {
+    padding-top: 30px;
+    padding-right: 550px;
+}
+
+.choice {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    padding-top: 100px;
+}
+
+.rock, .paper,
+.scissor {
+    border: 3px solid white;
+    border-radius: 15px;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.borderColorChange {
+    border-color: red;
+}
+
+.rock, .paper,
+.scissor:hover {
+    cursor: pointer;
+}
+
+.title {
+    font-style: italic;
+    text-decoration: underline;
+}

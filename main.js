@@ -51,4 +51,32 @@ function game (choice) {
     Computer = ${computerScore}`);
 }
 
-game('rock');
+
+
+/// Don't Touch
+
+let rock = document.querySelector('.rock')
+let paper = document.querySelector('.paper')
+let scissor = document.querySelector('.scissor')
+
+function toggleBorder(element) {
+    element.classList.toggle('borderColorChange');
+    setTimeout(() => {
+        element.classList.toggle('borderColorChange');
+    }, 100)
+}
+
+rock.addEventListener('click', () => {
+    toggleBorder(rock);
+    game('rock');
+})
+
+paper.addEventListener('click', () => {
+    toggleBorder(paper);
+    game('paper');
+})
+
+scissor.addEventListener('click', () => {
+    toggleBorder(scissor);
+    game('scissor');
+})
